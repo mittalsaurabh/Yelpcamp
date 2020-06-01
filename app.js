@@ -14,7 +14,14 @@ var commentRoutes     = require("./routes/comment"),
 	campgroundRoutes  = require("./routes/campground"),
 	indexRoutes 	  = require("./routes/index");
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb://localhost/yelp_camp", { useNewUrlParser: true });
+//mongoose.connect("mongodb://localhost/yelp_camp", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://saurabh:worldcup2019@cluster0-0zyae.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true ,
+	useCreateIndex:true}).then(()=>{
+	console.log("Connected to DB");
+}).catch(err =>{
+	console.log("error");
+});
+
 app.use(methodOverride("_method"));
 app.set("view engine" ,"ejs");
 app.use(flash());
