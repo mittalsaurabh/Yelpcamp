@@ -1,0 +1,32 @@
+<%- include("partials/header.ejs") %>
+
+<div class = "container">
+	<header class = "jumbotron">
+		<div class ="container">
+		<h1>
+			Welcome To Yelp-Camp
+		</h1>
+		<p>Here are some beautiful hand-picked camping places from all over the world </p>
+		<a  class= "btn btn-primary btn-lg" href="/campgrounds/new">Add new camp</a>
+	</div>
+			</header>
+	
+	<div class = "row text-centre" style ="display:flex; flex-wrap: wrap;" >
+<% for(var i =0; i<data.length ;i++ ){ %>
+	<div class = "col-md-3 col-lg-6">
+		<div class="thumbnail">
+				<img src ="<%=data[i]["image"]%>" >
+			<div class= "caption">
+				<h4> <%= data[i]["name"]  %></h4>
+			</div>
+			<p>
+				<a href="/campgrounds/<%=data[i]._id%>" class="btn btn-primary">More Info</a>
+			</p>
+		</div>
+	
+	
+	</div>
+	
+ <% } %> 
+	</div>
+<%- include("partials/footer.ejs") %>
