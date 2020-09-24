@@ -14,7 +14,7 @@ var commentRoutes     = require("./routes/comment"),
 	campgroundRoutes  = require("./routes/campground"),
 	indexRoutes 	  = require("./routes/index");
 mongoose.set('useUnifiedTopology', true);
-//mongoose.connect("mongodb://localhost/yelp_camp", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/yelp_camp", { usnpeNewUrlParser: true });
 mongoose.connect("mongodb+srv://saurabh:worldcup2019@cluster0-0zyae.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true ,
 	useCreateIndex:true}).then(()=>{
 	console.log("Connected to DB");
@@ -25,8 +25,7 @@ mongoose.connect("mongodb+srv://saurabh:worldcup2019@cluster0-0zyae.mongodb.net/
 app.use(methodOverride("_method"));
 app.set("view engine" ,"ejs");
 app.use(flash());
-//seedDB();
-app.use(express.static(__dirname+"/public"))
+app.use(express.static(__dirname+"/public"));
 
 var bodyParser  = require("body-parser");
 app.use(require("express-session")({
