@@ -2,12 +2,6 @@
 #include<bits/stdc++.h> 
 using namespace std; 
 
-// A BST node 
-struct node 
-{ 
-	int data; 
-	struct node* left, *right; 
-}; 
 
 // Utility function to create new node 
 node *newNode(int data) 
